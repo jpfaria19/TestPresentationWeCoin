@@ -1,6 +1,4 @@
-﻿@model IEnumerable<TestMVCWeCoin.Models.User>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <title>Register</title>
@@ -12,7 +10,7 @@
 
 <body>
     @{
-        ViewBag.Title = "Lista de Posts";
+        ViewBag.Title = "Registro";
         Layout = "~/Views/Shared/_LayoutLogin.cshtml";
     }
     <div class="container">
@@ -29,41 +27,38 @@
                             <input class="form-control" name="lastname" placeholder="Last Name" type="text" required />
                         </div>
                     </div>
-                    <input class="form-control" name="youremail" placeholder="Your Email" type="email" />
-                    <input class="form-control" name="reenteremail" placeholder="Re-enter Email" type="email" />
-                    <input class="form-control" name="password" placeholder="New Password" type="password" />
+                    <input class="form-control" name="youremail" placeholder="Your Email" type="email" required/>
+                    <input class="form-control" name="reenteremail" placeholder="Re-enter Email" type="email" required/>
+                    <input class="form-control" name="password" placeholder="New Password" type="password" required/>
                     <label for="">
                         Birth Date
                     </label>
                     <div class="row">
                         <div class="col-xs-4 col-md-4">
-                            <select class="form-control">
-                                <option value="Month">Month</option>
-                            </select>
-                        </div>
-                        <div class="col-xs-4 col-md-4">
-                            <select class="form-control">
-                                <option value="Day">Day</option>
-                            </select>
-                        </div>
-                        <div class="col-xs-4 col-md-4">
-                            <select class="form-control">
-                                <option value="Year">Year</option>
-                            </select>
+                            <input id="date" type="date" name="date" required>
                         </div>
                     </div>
-                    <label class="radio-inline">
-                        <input type="radio" name="sex" id="inlineCheckbox1" value="male" />
-                        Male
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
-                        Female
-                    </label>
                     <br />
+                    <div>
+                        <label class="radio-inline">
+                            <input type="radio" name="sexMasc" id="inlineCheckbox1" value="male"/>
+                            Male
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sexFemin" id="inlineCheckbox2" value="female"/>
+                            Female
+                        </label>
+                    </div>
                     <br />
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    <div>
+                        <input type="text" name="wallet" placeholder="Enter your wallet" class="form-control" required/>
+                    </div>
+                    <br />
+                    <button class="btn btn-sm btn-primary " type="submit" onclick="window.location.href('@Url.Action("Index","Home")')">
                         Sign up
+                    </button>
+                    <button type="reset" class="btn btn-default btn-sm">
+                        Clear
                     </button>
                 </form>
             </div>

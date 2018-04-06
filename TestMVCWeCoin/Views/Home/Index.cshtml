@@ -32,20 +32,10 @@
                                 <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Remember me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
                         <div class="form-group last">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <button type="submit" class="btn btn-success btn-sm">
-                                    Sign in
+                                    @Html.ActionLink("Sign in", "PostList", "Home")
                                 </button>
                                 <button type="reset" class="btn btn-default btn-sm">
                                     Reset
@@ -55,7 +45,7 @@
                     </form>
                 </div>
                 <div class="panel-footer">
-                    Not Registred? <a href="Register.cshtml">Register here</a>
+                    Not Registred? @Html.ActionLink("Register Here", "Register", "Home")
                 </div>
             </div>
         </div>

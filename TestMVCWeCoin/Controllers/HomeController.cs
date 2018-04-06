@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Mvc;
 using TestMVCWeCoin.Models;
@@ -16,6 +18,7 @@ namespace TestMVCWeCoin.Controllers
             return View();
         }
 
+        
         public ActionResult PostList()
         {
             const string apiBaseUri = "http://localhost:50505/";
@@ -34,8 +37,18 @@ namespace TestMVCWeCoin.Controllers
             }
         }
 
-        public ActionResult Register()
+        public ActionResult Register(FormCollection form, User usr)
         {
+            var fName = form["firstname"];
+            var sName = form["lastname"];
+            var email = form["youremail"];
+            var confirmEmail = form["reenteremail"];
+            var password = form["password"];
+            var date = form["date"];
+            var sexMasc = form["sexMasc"];
+            var sexFemin = form["sexFemin"];
+            var wallet = form["wallet"];
+
             return View();
         }
 
