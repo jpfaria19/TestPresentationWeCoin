@@ -34,6 +34,11 @@ namespace TestMVCWeCoin.Controllers
             }
         }
 
+        public ActionResult Register()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

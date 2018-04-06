@@ -1,0 +1,9 @@
+﻿body {
+    background: url(https://1point21gws.com/BlockchainSummit/2017/Blockchain_Summit_Sanfrancisco/extra-images/background-img-slider.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 30px;
+}
+.form-control { margin-bottom: 10px; }
