@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    @Styles.Render("~/Content/PostList.css")
 </head>
 <body>
 
@@ -20,8 +21,8 @@
         <div class="row">
             <div class="col-sm-3 well">
                 <div class="well">
-                    <p><a href="#">My Profile</a></p>
-                    <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+                    <img src="/padrao.png" class="img-circle" height="65" width="65" alt="Avatar">
+                    <p>@Html.ActionLink("My Profile", "Profile", "Home")</p>
                 </div>
                 <div class="well">
                     <p><a href="#">Interests</a></p>
@@ -40,18 +41,29 @@
                     People are looking at your profile. Find out who.
                 </div>
             </div>
-            <div class="col-sm-7">
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="panel panel-default text-left">
-                            <div class="panel-body">
-                                <textarea rows="3" placeholder="Digite seu post aqui" class="form-control z-depth-1"></textarea>
-                            </div>
+            <div class="col-sm-9">
+                @* CLASS GERAL DO CENTRO DA PÁGINA *@
+                <div class="well col-sm-6">
+                    @* ALTERA O TAMANHO DA CAIXA DE POSTAGEM *@
+                    <form class="form-horizontal" role="form">
+                        <h4>What's New</h4>
+                        <div class="form-group" style="padding: 14px;">
+                            <textarea class="form-control" placeholder="Update your status"></textarea>
                         </div>
+                        <button class="btn btn-primary pull-right" type="button">Post</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+                    </form>
+                </div>
+                <div class="col-sm-4 well" style="margin-left: 5%">
+                    @* ALTERA O TAMANHO DA CAIXA DE MINERAÇÃO *@
+                    <div class="thumbnail">
+                        <p>MINERAR AQUI</p>
                     </div>
                 </div>
-                <table class="table">
+                @*<div style="padding: 1em">
+                        <textarea class="form-control" placeholder="DIGITA ESSA MERDA"></textarea>
+                        <p>pORRA</p>
+                    </div>*@
+                <table class="table col-sm-9">
                     <tr>
                         <th>
                             @Html.DisplayNameFor(model => model.ImgURL)
@@ -65,16 +77,13 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Posts)
                         </th>
-                        <th>
-                            Actions
-                        </th>
-                        <th></th>
                     </tr>
 
-                    @foreach (var item in Model) {
+                    @foreach (var item in Model)
+                    {
                         <tr>
                             <td>
-                                <img src="@Url.Content(item.ImgURL)" style="width: 30px; height: 30px;" />
+                                <img src="@Url.Content(item.ImgURL)" style="width: 50px; height: 50px;" />
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Nome)
@@ -85,24 +94,15 @@
                             <td>
                                 @foreach (var item2 in item.Posts)
                                 {
-                                    @Html.DisplayFor(modelItem => item2.Content)    
+                                    @Html.DisplayFor(modelItem => item2.Content)
                                 }
-                            </td>
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                             </td>
                         </tr>
                     }
 
                 </table>
             </div>
-            <div class="col-sm-2 well">
-                <div class="thumbnail">
-                    <p>MINERAR AQUI</p>
-                </div>
-            </div>
+
         </div>
     </div>
 </body>

@@ -48,7 +48,18 @@ namespace TestMVCWeCoin.Controllers
             var sexMasc = form["sexMasc"];
             var sexFemin = form["sexFemin"];
             var wallet = form["wallet"];
+            var terms = form["AcceptTerms"];
 
+            //if (!ModelState.IsValid)
+            //{
+            //    return View();
+            //}
+
+            return View();
+        }
+
+        public ActionResult Profile()
+        {
             return View();
         }
 
